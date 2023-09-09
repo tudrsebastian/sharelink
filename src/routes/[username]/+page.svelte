@@ -22,11 +22,13 @@
     width="256"
     class="mx-auto"
   />
-
   <p class="text-xl my-8">{data.bio ?? "no bio yet..."}</p>
   <ul class="list-none">
     {#each data.links as item}
       <UserLink {...item} />
     {/each}
   </ul>
+  <a href="/login" class="btn btn-primary mt-24"
+    >Make your own ShareLink profile</a
+  >
 </main>

@@ -1,8 +1,13 @@
 <script lang="ts">
   import { auth, user } from "$lib/firebase";
 
-  import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
-
+  import {
+    GoogleAuthProvider,
+    signInWithPopup,
+    signOut,
+    OAuthProvider,
+  } from "firebase/auth";
+  $: href = "/login/username";
   async function signInWithGoogle() {
     const provider = new GoogleAuthProvider();
     const credential = await signInWithPopup(auth, provider);
@@ -18,7 +23,21 @@
       body: JSON.stringify({ idToken }),
     });
   }
+  // async function signInWithApple() {
+  //   const provider = new OAuthProvider("apple.com");
+  //   const credential = await signInWithPopup(auth, provider);
 
+  //   const idToken = await credential.user.getIdToken();
+
+  //   const res = await fetch("/api/signin", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       // 'CSRF-Token': csrfToken  // HANDLED by sveltekit automatically
+  //     },
+  //     body: JSON.stringify({ idToken }),
+  //   });
+  // }
   async function signOutSSR() {
     const res = await fetch("/api/signin", { method: "DELETE" });
     await signOut(auth);
@@ -32,8 +51,12 @@
   <p class="text-center text-success">You are logged in</p>
   <button class="btn btn-warning" on:click={() => signOutSSR()}>Sign out</button
   >
+  <button class="btn btn-primary"><a {href}>Next Step</a></button>
 {:else}
   <button class="btn btn-primary" on:click={signInWithGoogle}
     >Sign in with Google</button
   >
+  <!-- <button class="btn btn-primary" on:click={signInWithApple}
+    >Sign in with Apple</button
+  > -->
 {/if}

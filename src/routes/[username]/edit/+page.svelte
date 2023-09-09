@@ -20,6 +20,7 @@
     "TikTok",
     "LinkedIn",
     "GitHub",
+    "Instagram",
     "Custom",
   ];
 

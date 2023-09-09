@@ -7,6 +7,7 @@
   let previewURL: string;
   let uploading = false;
   $: href = `/${$userData?.username}/edit`;
+  $: previousHref = "/login/username";
 
   async function upload(e: any) {
     uploading = true;
@@ -52,4 +53,7 @@
 
   <a {href} class="btn btn-primary"> Finish </a>
   <a {href} class="btn btn-primary"> Continue without photo </a>
+  <button class="btn btn-primary"
+    ><a href={previousHref}>Previous Step</a></button
+  >
 </AuthCheck>

@@ -14,6 +14,8 @@
     username?.length > 2 && username.length < 16 && re.test(username);
   $: isTouched = username.length > 0;
   $: isTaken = isValid && !isAvailable && !loading;
+  $: previoushref = "/login";
+  $: href = "/login/photo";
   async function checkAvailability() {
     isAvailable = false;
     clearTimeout(debounceTimer);
@@ -91,5 +93,9 @@
         <button class="btn btn-success">Confirm username @{username} </button>
       {/if}
     </div>
+    <button class="btn btn-primary"
+      ><a href={previoushref}>Previous Step</a></button
+    >
+    <button class="btn btn-primary"><a {href}>Next Step</a></button>
   </form>
 </AuthCheck>

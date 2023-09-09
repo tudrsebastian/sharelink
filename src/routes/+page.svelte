@@ -3,10 +3,10 @@
 </script>
 
 <svelte:head>
-  <title>sharelink - a place for links</title>
+  <title>ShareLink - a place for links</title>
   <meta
     name="description"
-    content="Demo project for the Full SvelteKit Course by Fireship"
+    content="ShareLink - a app to easily share your social links with your network."
   />
 </svelte:head>
 

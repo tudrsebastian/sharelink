@@ -3,14 +3,14 @@ import { doc, getFirestore, onSnapshot } from "firebase/firestore";
 import { getAuth, onAuthStateChanged, type User } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 import { writable, type Readable, derived } from "svelte/store";
-
+import { FB_API_KEY, FB_PROJECT_ID, FB_APP_ID, FB_STORAGE,FB_MSGID, FB_AUTH } from "$env/static/private";
 const firebaseConfig = {
-  apiKey: "AIzaSyDnhhWVNmd3EvATcOUxqkv6IuOOizjZhrI",
-  authDomain: "sveltekit-course-8895f.firebaseapp.com",
-  projectId: "sveltekit-course-8895f",
-  storageBucket: "sveltekit-course-8895f.appspot.com",
-  messagingSenderId: "355246856218",
-  appId: "1:355246856218:web:f05d9da9e596f5babf19a3"
+  apiKey: FB_API_KEY,
+  authDomain: FB_AUTH,
+  projectId: FB_PROJECT_ID,
+  storageBucket: FB_STORAGE,
+  messagingSenderId: FB_MSGID,
+  appId: FB_APP_ID
 };
 
 // Initialize Firebase

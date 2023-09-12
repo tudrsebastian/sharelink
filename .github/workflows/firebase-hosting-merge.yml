@@ -13,6 +13,11 @@ jobs:
       FB_PROJECT_ID: ${{ secrets.FB_PROJECT_ID }}
       FB_CLIENT_EMAIL: ${{ secrets.FB_CLIENT_EMAIL }}
       FB_PRIVATE_KEY: ${{ secrets.FB_PRIVATE_KEY }}
+      FB_API_KEY: ${{ secrets.FB_API_KEY }}
+      FB_AUTH: ${{ secrets.FB_AUTH}}
+      FB_STORAGE: ${{ secrets.FB_STORAGE}}
+      FB_MSGID: ${{ secrets.FB_MSGID }}
+      FB_APP_ID: ${{secrets.FB_APP_ID}}
     steps:
       - uses: actions/checkout@v3
       - run: npm install && npm run build
